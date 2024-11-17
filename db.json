@@ -1,0 +1,22 @@
+{
+  "announcements": [
+    {
+      "title": "Header",
+      "description": "DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription",
+      "imagePath": "https://i.imgur.com/qRxy6HH.png",
+      "id": "3cc8"
+    },
+    {
+      "id": "d45c",
+      "title": "dasdas",
+      "description": "dasjodjsa",
+      "imagePath": "https://i.imgur.com/v1AwICb.png"
+    },
+    {
+      "id": "d57d",
+      "title": "Оголошення 1",
+      "description": "ЙЦРВГЦЙРВЙЦЛГВПЙЦОВДЙЦПВОЛЙЦОВРЙЦОЛВРЙЦВРЛГЙЦРВЩЙЦРВЛЙЦРВОЙЦДВРЙЦВРЙЦШДВРЙЦШДР",
+      "imagePath": "https://i.imgur.com/UpSBLpH.png"
+    }
+  ]
+}
