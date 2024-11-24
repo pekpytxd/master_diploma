@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { FaTrash } from "react-icons/fa";
+import { FaTrash, FaEdit } from "react-icons/fa"; // Додаємо іконку редагування
 import Image from "next/image";
 import Link from "next/link";
 import { deleteAnnouncement } from "@/services/announcements";
@@ -45,6 +45,16 @@ export default function AnnouncementCard({ announcement, onAnnouncementDeleted }
                 </div>
             </Link>
 
+            {/* Кнопка редагувати поруч з кнопкою видалити */}
+            <Link href={`/announcement/edit/${announcement.id}`}>
+                <button
+                    className="absolute top-2 right-12 bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"
+                >
+                    <FaEdit size={20} />
+                </button>
+            </Link>
+
+            {/* Кнопка видалити */}
             <button
                 onClick={openModal}
                 className="absolute top-2 right-2 bg-red-500 text-white p-2 rounded-full hover:bg-red-600 opacity-0 group-hover:opacity-100 transition-opacity"
@@ -52,6 +62,7 @@ export default function AnnouncementCard({ announcement, onAnnouncementDeleted }
                 <FaTrash size={20} />
             </button>
 
+            {/* Модальне вікно для підтвердження видалення */}
             {isModalOpen && (
                 <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
                     <div className="bg-white p-6 rounded-lg w-80">

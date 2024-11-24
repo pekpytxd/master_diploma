@@ -1,4 +1,4 @@
-import {sendDeleteRequest, sendGetRequest, sendPostRequest} from "@/services/api-client";
+import {sendDeleteRequest, sendGetRequest, sendPostRequest, sendPutRequest} from "@/services/api-client";
 
 const endpoint = '/announcements'
 
@@ -17,4 +17,8 @@ export async function getAnnouncement(id) {
 
 export async function deleteAnnouncement(id) {
     await sendDeleteRequest(endpoint, id);
+}
+
+export async function editAnnouncement(body) {
+    await sendPutRequest(endpoint, body);
 }
