@@ -28,7 +28,6 @@ export default function Announcements() {
 
     return (
         <div className="announcements-container px-12 py-6 flex flex-col min-h-screen">
-            {/* Перевірка на порожній список оголошень */}
             {announcements.length === 0 ? (
                 <div className="flex justify-center items-center flex-grow">
                     <p className="text-lg text-gray-500 text-center">
