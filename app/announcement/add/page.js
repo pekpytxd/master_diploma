@@ -1,7 +1,7 @@
 "use client";
-import {useState} from "react";
-import {useRouter} from "next/navigation";
-import {createAnnouncement} from "@/services/announcements";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { createAnnouncement } from "@/services/announcements";
 import axios from 'axios';
 
 export default function ImageUploadForm() {
@@ -47,7 +47,7 @@ export default function ImageUploadForm() {
         try {
             const response = await axios.post('https://api.imgur.com/3/image', formData, {
                 headers: {
-                    Authorization: 'Client-ID af0ec566dd93d34', // Replace with your actual Client ID
+                    Authorization: 'Client-ID af0ec566dd93d34',
                     'Content-Type': 'multipart/form-data',
                 },
             });
@@ -75,30 +75,30 @@ export default function ImageUploadForm() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center">
+        <div className="min-h-screen flex items-center justify-center bg-gray-100">
             <form onSubmit={handleSubmit}
-                  className="flex flex-col items-center bg-white p-8 rounded shadow-lg max-w-xl w-full">
-                <div className="mb-4 w-1/2">
-                    <label className="block mb-2">Заголовок</label>
+                  className="flex flex-col items-center bg-white p-8 rounded shadow-lg w-4/5 max-w-3xl">
+                <div className="mb-4 w-full">
+                    <label className="block mb-2 text-lg font-semibold">Заголовок</label>
                     <input
                         type="text"
-                        className="border-2 border-black rounded-lg p-1 w-full"
+                        className="border-2 border-gray-300 rounded-lg p-3 w-full text-lg"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         required
                     />
                 </div>
-                <div className="mb-4 w-1/2">
-                    <label className="block mb-2">Опис</label>
+                <div className="mb-4 w-full">
+                    <label className="block mb-2 text-lg font-semibold">Опис</label>
                     <textarea
-                        className="border-2 border-black rounded-lg p-1 w-full resize-none h-32"
+                        className="border-2 border-gray-300 rounded-lg p-3 w-full text-lg resize-none h-64"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                         required
                     />
                 </div>
                 <div
-                    className={`border-2 border-dashed rounded-lg p-4 w-64 h-64 flex justify-center items-center ${
+                    className={`border-2 border-dashed rounded-lg p-6 w-full max-w-xs mx-auto flex justify-center items-center ${
                         isDragOver ? 'bg-gray-300' : 'bg-gray-100'
                     }`}
                     onDrop={handleDrop}
@@ -110,7 +110,7 @@ export default function ImageUploadForm() {
                             <img
                                 src={imagePath}
                                 alt="Uploaded"
-                                className="object-cover w-full h-full"
+                                className="object-cover w-full h-full rounded-lg"
                             />
                             <button
                                 type="button"
@@ -122,9 +122,9 @@ export default function ImageUploadForm() {
                         </div>
                     ) : (
                         <div className="text-center">
-                            <p>Перетягніть фото сюди</p>
+                            <p className="text-lg font-semibold">Перетягніть фото сюди</p>
                             <p>або</p>
-                            <label className="text-blue-500 cursor-pointer">
+                            <label className="text-blue-500 cursor-pointer text-lg">
                                 Виберіть файл
                                 <input
                                     type="file"
@@ -138,9 +138,9 @@ export default function ImageUploadForm() {
                 </div>
                 <button
                     type="submit"
-                    className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
+                    className="mt-4 bg-blue-500 text-white px-6 py-3 rounded-lg text-lg font-semibold w-full max-w-xs"
                 >
-                    Відправити
+                    Створити
                 </button>
             </form>
         </div>

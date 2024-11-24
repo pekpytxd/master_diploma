@@ -17,6 +17,12 @@
       "title": "Оголошення 1",
       "description": "ЙЦРВГЦЙРВЙЦЛГВПЙЦОВДЙЦПВОЛЙЦОВРЙЦОЛВРЙЦВРЛГЙЦРВЩЙЦРВЛЙЦРВОЙЦДВРЙЦВРЙЦШДВРЙЦШДР",
       "imagePath": "https://i.imgur.com/UpSBLpH.png"
+    },
+    {
+      "id": "b17a",
+      "title": "Заголовок",
+      "description": "Опис",
+      "imagePath": "https://i.imgur.com/bAF41z3.png"
     }
   ]
 }
