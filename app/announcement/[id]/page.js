@@ -1,4 +1,4 @@
-import {getAnnouncement} from "@/services/announcements";
+import { getAnnouncement } from "@/services/announcements";
 
 export default async function AnnouncementPage({ params }) {
     const { id } = params;
@@ -13,7 +13,9 @@ export default async function AnnouncementPage({ params }) {
                 />
             </div>
             <h1 className="text-4xl font-bold mt-4 text-center">{announcement.title}</h1>
-            <p className="mt-4 text-left w-full">{announcement.description}</p>
+            <p className="mt-4 text-left w-full overflow-hidden text-ellipsis whitespace-normal break-words">
+                {announcement.description}
+            </p>
         </div>
     );
 }

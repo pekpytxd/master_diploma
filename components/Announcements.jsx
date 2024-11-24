@@ -20,11 +20,32 @@ export default function Announcements() {
         fetchAnnouncements();
     }, []);
 
+    const handleAnnouncementDeleted = (deletedId) => {
+        setAnnouncements((prevAnnouncements) => {
+            return prevAnnouncements.filter((announcement) => announcement.id !== deletedId);
+        });
+    };
+
     return (
-        <div className="announcements grid grid-cols-1 md:grid-cols-2 gap-8 px-12 py-6">
-            {announcements.map((announcement, index) => (
-                <AnnouncementCard key={index} announcement={announcement} />
-            ))}
+        <div className="announcements-container px-12 py-6 flex flex-col min-h-screen">
+            {/* Перевірка на порожній список оголошень */}
+            {announcements.length === 0 ? (
+                <div className="flex justify-center items-center flex-grow">
+                    <p className="text-lg text-gray-500 text-center">
+                        Нема жодного оголошення - Для створення натисніть кнопку "Додати оголошення" зверху
+                    </p>
+                </div>
+            ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 flex-grow">
+                    {announcements.map((announcement) => (
+                        <AnnouncementCard
+                            key={announcement.id}
+                            announcement={announcement}
+                            onAnnouncementDeleted={handleAnnouncementDeleted}
+                        />
+                    ))}
+                </div>
+            )}
         </div>
     );
 }
