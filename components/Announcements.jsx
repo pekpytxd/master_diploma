@@ -27,7 +27,7 @@ export default function Announcements() {
     };
 
     return (
-        <div className="announcements-container px-12 py-6 flex flex-col min-h-screen">
+        <div className="announcements-container px-6 py-4 md:px-12 md:py-6 flex flex-col min-h-screen">
             {announcements.length === 0 ? (
                 <div className="flex justify-center items-center flex-grow">
                     <p className="text-lg text-gray-500 text-center">
@@ -35,7 +35,7 @@ export default function Announcements() {
                     </p>
                 </div>
             ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 flex-grow">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 flex-grow">
                     {announcements.map((announcement) => (
                         <AnnouncementCard
                             key={announcement.id}

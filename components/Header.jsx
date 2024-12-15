@@ -12,11 +12,19 @@ const Header = () => {
 
     return (
         <div className="w-full h-20 bg-gray-200 flex items-center justify-between px-8">
-            <a href={'/'}>
-                <div className='flex justify-center'>
-                    <Image src={logo} alt="Robotics Logo" className='w-auto h-auto'/>
-                </div>
-            </a>
+            <a href="/" aria-label="Go to home page">
+    <div className="flex items-center justify-center">
+        <Image 
+            src={logo} 
+            alt="Robotics Logo" 
+            width={120} 
+            height={40} 
+            className="object-contain" 
+            priority 
+        />
+    </div>
+</a>
+
             {/* Якщо не на сторінці /announcement/[id] або /announcement/add, то кнопка відображається */}
             {!isAnnouncementPage && (
                 <a href="/announcement/add" className="hover:cursor-pointer">

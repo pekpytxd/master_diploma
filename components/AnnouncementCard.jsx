@@ -34,7 +34,7 @@ export default function AnnouncementCard({ announcement, onAnnouncementDeleted }
                     <Image
                         src={announcement.imagePath}
                         alt="Logo"
-                        className="w-full h-72 object-cover"
+                        className="w-full h-72 object-cover lg:h-[500px]"
                         width={125}
                         height={125}
                     />
