@@ -31,7 +31,7 @@ export default function Announcements() {
             {announcements.length === 0 ? (
                 <div className="flex justify-center items-center flex-grow">
                     <p className="text-lg text-gray-500 text-center">
-                        Нема жодного оголошення - Для створення натисніть кнопку "Додати оголошення" зверху
+                        Нема жодного оголошення - Для створення натисніть кнопку &quot;Додати оголошення&quot; зверху
                     </p>
                 </div>
             ) : (
