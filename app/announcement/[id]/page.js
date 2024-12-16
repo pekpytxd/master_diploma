@@ -35,31 +35,38 @@ export default function AnnouncementPage({ params }) {
         }
     }, [announcement, announcements]);
 
-    // Логіка для плавного скролінгу та переходу до наступного оголошення
     useEffect(() => {
         if (pathname.includes("/announcement/")) {
-            // Тільки на сторінці оголошення
+            // Smooth scrolling function
             const smoothScroll = () => {
                 const totalHeight = document.documentElement.scrollHeight;
                 const currentScroll = window.scrollY;
                 const remainingScroll = totalHeight - window.innerHeight - currentScroll;
 
-                if (remainingScroll > 0) {
-                    window.scrollBy(0, 0.5); // Прокручувати на 0.5 пікселя кожного разу
-                    setTimeout(() => requestAnimationFrame(smoothScroll), 100); // Затримка 100мс перед наступним скролом
+                if (remainingScroll > 1) {
+                    // Scroll by a small amount
+                    window.scrollBy(0, 1); // Adjust the value (e.g., 2 pixels) for a smoother effect
+                    requestAnimationFrame(smoothScroll);
                 } else {
-                    // Після досягнення кінця сторінки чекаємо 5 секунд перед переходом
+                    // If at the bottom, wait 5 seconds and then navigate to the next announcement
                     if (nextAnnouncement) {
                         setTimeout(() => {
-                            window.location.href = `/announcement/${nextAnnouncement.id}`; // Переходимо до наступного оголошення
-                        }, 5000); // Затримка 5 секунд
+                            window.location.href = `/announcement/${nextAnnouncement.id}`;
+                        }, 5000); // 5-second delay
                     }
                 }
             };
 
-            requestAnimationFrame(smoothScroll); // Запуск анімації скролінгу
+            // Start scrolling
+            const scrollInterval = setTimeout(() => {
+                requestAnimationFrame(smoothScroll);
+            }, 1000); // Optional: Delay 1 second before starting scrolling
+
+            // Cleanup in case the component unmounts
+            return () => clearTimeout(scrollInterval);
         }
     }, [nextAnnouncement, pathname]);
+
 
     // Якщо оголошення ще не завантажено
     if (!announcement) {
