@@ -1,10 +1,10 @@
 "use client";
-import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
-import { getAllAnnouncements } from "@/services/announcements";
+import {useEffect, useState} from "react";
+import {usePathname} from "next/navigation";
+import {getAllAnnouncements} from "@/services/announcements";
 
-export default function AnnouncementPage({ params }) {
-    const { id } = params; // Отримуємо id поточного оголошення
+export default function AnnouncementPage({params}) {
+    const {id} = params; // Отримуємо id поточного оголошення
     const [announcement, setAnnouncement] = useState(null); // Поточне оголошення
     const [announcements, setAnnouncements] = useState([]); // Список всіх оголошень
     const [nextAnnouncement, setNextAnnouncement] = useState(null); // Наступне оголошення
@@ -88,8 +88,14 @@ export default function AnnouncementPage({ params }) {
             </div>
             <h1 className="text-4xl font-bold mt-4 text-center">{announcement.title}</h1>
             <p className="mt-4 text-left w-full overflow-hidden text-ellipsis whitespace-normal break-words">
-                {announcement.description}
+                {announcement.description.split('\n').map((line, index) => (
+                    <span key={index}>
+            {line}
+                        <br/>
+        </span>
+                ))}
             </p>
+
         </div>
     );
 }
